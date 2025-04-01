@@ -1,17 +1,13 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Start {
     public static void main(String[] args) {
-        int[] intArray = {11,1,45,6,3,67,2,6};
-        ArrayList<Integer>integerArrayList = new ArrayList<>();
-        integerArrayList.add(34);
-        integerArrayList.add(1);
-        integerArrayList.add(4);
-        integerArrayList.add(55);
-        integerArrayList.add(2);
-        integerArrayList.add(43);
 
-
+        ArrayList<Integer>numbers=new ArrayList<>(Arrays.asList(1,2,44,4,67,10));
+        StreamList.printList(numbers);
 
     }
+
 }

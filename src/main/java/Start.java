@@ -1,11 +1,21 @@
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Stream;
+
 
 public class Start {
     public static void main(String[] args) {
-        ArrayList<String>wards=new ArrayList<>(Arrays.asList("Лес","Погода","Земля","Солнце","Свет","Дождь"));
-        Stream<String> stream=wards.stream();
-        StreamString.getStringFromStream(stream);
+        Cat cat = new Cat("Vasya", 10, new ArrayList<>(Arrays.asList("Anton", "Oleg", "Igor")));
+
+        Class catNull = cat.getClass();
+        for (Field field: catNull.getDeclaredFields()){
+            try {
+                field.setAccessible(true);
+                field.set(cat, null);
+            } catch (IllegalAccessException | NullPointerException | IllegalArgumentException e) {
+                System.err.println("Не удалось обнулить поле <"+field.getName()+"> так как это примитив!");
+            }
+        }
+        System.out.println(cat);
     }
 }
